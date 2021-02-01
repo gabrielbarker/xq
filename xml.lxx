@@ -1,0 +1,30 @@
+%top{
+#include "parser.tab.hxx"
+%}
+
+%option bison-cc bison-locations noyywrap
+%option namespace=yy lexer=Lexer lex=yylex
+
+%option unicode
+
+langle <
+rangle >
+slash \/
+eq \s*=\s*
+word [a-zA-Z0-9]+
+punctuation [\ .,-_;:\!\?\"\']
+words [{word}{punctuation}]+
+string \"[{word}[\ .,-_;:\!\?']?]+\"|'[{word}[\ .,-_;:\!\?\"]?]+'
+
+%%
+
+[\t\n\r]+ { /* ignore white space */ }
+{langle}  { return parser::token::LANGLE; }
+{rangle}  { return parser::token::RANGLE; }
+{slash}   { return parser::token::SLASH; }
+{eq}      { return parser::token::EQ; }
+{word}    { return parser::token::WORD; }
+{words}   { return parser::token::WORDS; }
+{string}  { return parser::token::STRING; }
+
+%%
