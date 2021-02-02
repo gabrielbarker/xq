@@ -8,6 +8,7 @@ public:
     explicit Driver(const reflex::Input in) : lexer(in), parser(new yy::parser(lexer, &root)) { root = nullptr; }
     ~Driver() { delete parser; }
     XML::Tag* parse() {
+        parser->set_debug_level(1);
         std::cout << "Running parser" << std::endl;
         int result = parser->parse();
         if (result == 0) {  // 0 == success, 1 == failure
@@ -15,6 +16,7 @@ public:
             if (root == nullptr) {
                 std::cout << "Null result" << std::endl;
             }
+            root->print();
             return root;
         } else {
             std::cout << "Parse failed, no tree" << std::endl;
