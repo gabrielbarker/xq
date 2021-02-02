@@ -25,6 +25,7 @@ namespace XML
     void setValue(std::string value);
     void setAttributes(std::map<std::string, std::string> attributes);
     void setChildren(std::vector<XML::Tag*> children);
+    void print();
 
   private:
     std::string name;

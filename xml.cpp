@@ -1,4 +1,5 @@
 #include "xml.hpp"
+#include <iostream>
 
 namespace XML
 {
@@ -17,6 +18,26 @@ namespace XML
   void Tag::setChildren(std::vector<XML::Tag*> children)
   {
     this->children = children;
+  }
+  void Tag::print()
+  {
+    std::cout << "open: " << this->name << std::endl;
+    std::map<std::string, std::string>::iterator it;
+
+    for (it = this->attributes.begin(); it != this->attributes.end(); it++)
+    {
+      std::cout << it->first    // string (key)
+                << ": "
+                << it->second   // string's value 
+                << std::endl;
+    }
+    for (size_t i = 0; i < this->children.size(); i++)
+    {
+      this->children[i]->print();
+    }
+    if (this->children.size() == 0) {
+      std::cout << "value: " << this->value << std::endl;
+    }
   }
 
   std::string Attributes::get(std::string name) {
