@@ -7,7 +7,6 @@ clean:
 	rm lex.yy.h
 	rm parser.tab.cxx
 	rm parser.tab.hxx
-	rm position.hh
-	rm stack.hh
 	rm location.hh
-	rm bin/xml
+	rm -r bin/
+	mkdir bin
