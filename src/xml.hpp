@@ -43,4 +43,4 @@ namespace XML
   private:
     std::vector<XML::Tag*> children;
   };
-}; // namespace XML
+} // namespace XML

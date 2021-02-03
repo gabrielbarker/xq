@@ -59,4 +59,4 @@ namespace XML
   std::vector<XML::Tag*> Children::tags() {
     return this->children;
   }
-}; // namespace XML
+} // namespace XML
