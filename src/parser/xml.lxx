@@ -1,5 +1,5 @@
 %top{
-#include "parser.tab.hxx"
+#include "xml.tab.hxx"
 %}
 
 %option bison-cc bison-locations noyywrap

@@ -1,12 +1,6 @@
 defintion:
-	bison -d parser.yxx
-	reflex --bison-cc --bison-locations --header-file xml.lxx
-	g++ -I../RE-flex/include -o bin/xml parser.cpp lex.yy.cpp xml.cpp parser.tab.cxx ../RE-flex/lib/libreflex.a
+	make -C src
 clean:
-	rm lex.yy.cpp
-	rm lex.yy.h
-	rm parser.tab.cxx
-	rm parser.tab.hxx
-	rm location.hh
+	make clean -C src
 	rm -r bin/
 	mkdir bin

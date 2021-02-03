@@ -1,4 +1,4 @@
-#include "lex.yy.h"
+#include "parser/lex.yy.h"
 #include "xml.hpp"
 #include <unistd.h>
 #include <iostream>
