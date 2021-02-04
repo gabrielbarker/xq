@@ -9,7 +9,7 @@ TEST_INCPATH = /usr/local/Cellar/unittest-cpp/$(TEST_VERSION)/include/UnitTest++
 TEST_LIBPATH = /usr/local/Cellar/unittest-cpp/$(TEST_VERSION)/lib/
 TEST_LIB = UnitTest++
 
-MAIN=src/parser.cpp
+MAIN=src/main.cpp
 PARSER_SRCS=./src/parser/lex.yy.cpp ./src/parser/xml.tab.cxx
 SRCS = $(shell find src -name '*.cpp' -depth 1 | grep -v $(MAIN))
 TESTS = $(shell find tests -name '*.cpp')

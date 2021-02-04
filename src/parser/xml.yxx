@@ -6,7 +6,7 @@
     class Lexer;
   }
 
-  #include "../xml.hpp"
+  #include "../XML.hpp"
 }
 
 %locations

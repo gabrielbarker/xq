@@ -1,4 +1,4 @@
-#include "xml.hpp"
+#include "XML.hpp"
 #include <iostream>
 
 namespace XML

@@ -7,7 +7,7 @@ REFLEX_LIB = reflex
 BINDIR = ../bin
 
 PARSER_SRCS=./parser/lex.yy.cpp ./parser/xml.tab.cxx
-SRCS=$(shell find . -name '*.cpp')
+SRCS=$(shell find . -name '*.cpp' | grep -v ./parser/lex.yy.cpp)
 
 CXXFLAGS = -Wall -Wextra -Wpedantic
 CXX = g++
