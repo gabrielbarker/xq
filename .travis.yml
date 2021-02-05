@@ -7,9 +7,9 @@ matrix:
       osx_image: xcode11.4
 
 install:
-  - HOMEBREW_NO_AUTO_UPDATE=1 brew install bison@3.7.3
-  - HOMEBREW_NO_AUTO_UPDATE=1 brew install reflex@3.0.1
-  - HOMEBREW_NO_AUTO_UPDATE=1 brew install unittest-cpp@2.0.0
+  - HOMEBREW_NO_AUTO_UPDATE=1 brew install bison
+  - HOMEBREW_NO_AUTO_UPDATE=1 brew install reflex
+  - HOMEBREW_NO_AUTO_UPDATE=1 brew install unittest-cpp
 
 script:
   - make test
