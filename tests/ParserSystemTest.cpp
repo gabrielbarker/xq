@@ -6,7 +6,7 @@ SUITE(ParserSystemTest)
 {
   TEST(parseSimpleXML_parsesCorrectly)
   {
-    FILE *f = fopen("tests/data/simple.xml", "r");
+    FILE *f = fopen("tests/test_data/simple.xml", "r");
     if (! f) {
       std::cerr << "Open file failed" << std::endl;
       exit(5);
