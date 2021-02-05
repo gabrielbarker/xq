@@ -6,7 +6,7 @@
     class Lexer;
   }
 
-  #include "../XML.hpp"
+  #include "../include/XML.hpp"
 }
 
 %locations
@@ -16,7 +16,7 @@
 %parse-param { XML::Tag** root }
 
 %code{
-    #include "lex.yy.h"
+    #include "../include/parser/xml.yy.h"
     #undef yylex
     #define yylex lexer.yylex
 }

@@ -1,8 +1,4 @@
-#include "parser/lex.yy.h"
 #include "Parser.hpp"
-#include "XML.hpp"
-#include <unistd.h>
-#include <iostream>
 
 Parser::Parser(const reflex::Input in) : lexer(in), parser(new yy::parser(lexer, &root)) { 
     root = nullptr; 
@@ -13,7 +9,7 @@ Parser::~Parser() {
 }
 
 XML::Tag* Parser::parse() {
-    parser->set_debug_level(1);
+    parser->set_debug_level(0);
     std::cout << "Running parser" << std::endl;
     int result = parser->parse();
     if (result == 0) {  // 0 == success, 1 == failure

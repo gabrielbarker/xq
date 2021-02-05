@@ -1,6 +1,6 @@
 #pragma once
 
-#include "parser/lex.yy.h"
+#include "parser/xml.yy.h"
 #include "XML.hpp"
 #include <unistd.h>
 #include <iostream>

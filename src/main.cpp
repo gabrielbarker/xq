@@ -15,12 +15,12 @@ int main(int argc, char **argv)
             exit(5);
         }
         std::cerr << "Opened " << argv[optind] << std::endl;
-        Parser driver(f);
-        root = driver.parse();
+        Parser parser(f);
+        root = parser.parse();
     } else {
         std::cerr << "Reading from stdin" << std::endl;
-        Parser driver(&std::cin);
-        root = driver.parse();
+        Parser parser(&std::cin);
+        root = parser.parse();
     }
     if (root != nullptr) {
         std::cerr << "Parsed!" << std::endl;
