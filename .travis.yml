@@ -1,9 +1,6 @@
 language: c++
 compiler: g++
 
-env:
-  - SH=zsh
-
 matrix:
   include:
     - os: osx
