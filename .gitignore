@@ -32,7 +32,7 @@
 *.app
 
 # Generated
-generated/
+include/parser/
 
 # Data
 data/
