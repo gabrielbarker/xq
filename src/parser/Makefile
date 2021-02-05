@@ -1,4 +1,4 @@
-BISON_PATH=/usr/local/Cellar/bison/3.7.3/bin/bison
+BISON_PATH=/usr/local/Cellar/bison/3.5.4/bin/bison
 
 defintion:
 	bison -b ../../include/parser/xml -d xml.yxx

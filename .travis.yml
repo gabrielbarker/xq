@@ -8,7 +8,8 @@ matrix:
 
 install:
   - HOMEBREW_NO_AUTO_UPDATE=1 brew install bison
-  - export PATH="/usr/local/Cellar/bison/3.7.3/bin:$PATH"
+  - export PATH="/usr/local/Cellar/bison/3.5.4/bin:$PATH"
+  - bison -V
   - HOMEBREW_NO_AUTO_UPDATE=1 brew install re-flex
   - HOMEBREW_NO_AUTO_UPDATE=1 brew install unittest-cpp
 
