@@ -1,11 +1,5 @@
-BISON_PATH=/usr/local/Cellar/bison/3.5.4/bin/bison
-
 defintion:
 	bison -b ../../include/parser/xml -d xml.yxx
-	reflex --bison-cc --bison-locations --header-file=../../include/parser/xml.yy.h --outfile=xml.yy.cpp  xml.lxx
-
-ci:
-	$(BISON_PATH) -b ../../include/parser/xml -d xml.yxx
 	reflex --bison-cc --bison-locations --header-file=../../include/parser/xml.yy.h --outfile=xml.yy.cpp  xml.lxx
 
 clean:
