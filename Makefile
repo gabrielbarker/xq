@@ -29,6 +29,10 @@ defintion:
 test: $(TESTS)
 	make -C src/parser
 	$(CXX) $(CXXFLAGS) $(REFLEX_LIB_FLAGS) $(TEST_LIB_FLAGS) $(PARSER_SRCS) $(SRCS) $(TESTS) -o $(BUILDDIR)/$@
+
+ci: $(TESTS)
+	make ci -C src/parser
+	$(CXX) $(CXXFLAGS) $(REFLEX_LIB_FLAGS) $(TEST_LIB_FLAGS) $(PARSER_SRCS) $(SRCS) $(TESTS) -o $(BUILDDIR)/$@
 	
 clean:
 	make clean -C src
