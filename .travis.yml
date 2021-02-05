@@ -14,7 +14,7 @@ install:
 
 script:
   - mkdir build/
-  - make test
+  - make ci
   - ./build/test
 
 after_success:
