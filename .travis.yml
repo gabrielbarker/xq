@@ -13,6 +13,7 @@ install:
   - HOMEBREW_NO_AUTO_UPDATE=1 brew install unittest-cpp
 
 script:
+  - mkdir build/
   - make test
   - ./build/test
 
