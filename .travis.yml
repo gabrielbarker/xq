@@ -13,7 +13,7 @@ install:
 
 script:
   - make test
-  - ./bin/test
+  - ./build/test
 
 after_success:
   - make clean
