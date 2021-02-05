@@ -8,7 +8,7 @@ matrix:
 
 install:
   - HOMEBREW_NO_AUTO_UPDATE=1 brew install bison
-  - HOMEBREW_NO_AUTO_UPDATE=1 brew install reflex
+  - HOMEBREW_NO_AUTO_UPDATE=1 brew install re-flex
   - HOMEBREW_NO_AUTO_UPDATE=1 brew install unittest-cpp
 
 script:
