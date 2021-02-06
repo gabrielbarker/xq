@@ -1,0 +1,27 @@
+<characters>
+  <dot>.</dot>
+  <comma>,</comma>
+  <tilde>~</tilde>
+  <backtick>`</backtick>
+  <exclamation>!</exclamation>
+  <question>?</question>
+  <at>@</at>
+  <euro>€</euro>
+  <pound>£</pound>
+  <hash>#</hash>
+  <dollar>$</dollar>
+  <percent>%</percent>
+  <asterisk>*</asterisk>
+  <lbracket>(</lbracket>
+  <rbracket>)</rbracket>
+  <lcbracket>{</lcbracket>
+  <rcbracket>}</rcbracket>
+  <lsbracket>[</lsbracket>
+  <rsbracket>]</rsbracket>
+  <backslash>\</backslash>
+  <plus>+</plus>
+  <minus>-</minus>
+  <colon>:</colon>
+  <semicolon>;</semicolon>
+  <all>.,~`!?@€£#$%*(){}[]\+-:;</all>
+</characters>
