@@ -12,6 +12,7 @@ rangle  >
 slash   \/
 eq      \s*=\s*
 word    [a-zA-Z0-9]+
+comment <!--(.|\s)*?-->
 special [\.,\-_;:!\?\"'\+€\$£#%\*\(\)\{\}\[\]~`@\\]
 words   ([a-zA-Z0-9\s]|{special})+
 string  \"{words}\"|'{words}'
@@ -19,6 +20,7 @@ string  \"{words}\"|'{words}'
 %%
 
 [ \t\n\r]+ { /* ignore white space */ }
+{comment}  { /* ignore comments */ }
 {langle}  { return parser::token::LANGLE; }
 {rangle}  { return parser::token::RANGLE; }
 {slash}   { return parser::token::SLASH; }
