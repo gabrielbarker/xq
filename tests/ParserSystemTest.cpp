@@ -7,14 +7,14 @@ SUITE(ParserSystemTest)
 {
   class ParserFixture
   {
-  public:
-    void parseFile(std::string path) 
+  public:    XML::Tag* parseFile(std::string path) 
     {
       FILE *f = fopen(path.c_str(), "r");
       REQUIRE CHECK(f != nullptr);
       Parser parser(f);
       XML::Tag* root = parser.parse();
       CHECK(root != nullptr);
+      return root;
     }
   };
   
@@ -31,5 +31,10 @@ SUITE(ParserSystemTest)
   TEST_FIXTURE(ParserFixture, parseSpecialXML_parsesCorrectly)
   {
     parseFile("tests/test_data/special.xml");
+  }
+  
+  TEST_FIXTURE(ParserFixture, parseCommentXML_parsesCorrectly)
+  {
+    parseFile("tests/test_data/comment.xml");
   }
 }

@@ -1,0 +1,11 @@
+<test>
+  <value>normal value</value>
+  <!-- plain text comment -->
+  <value>normal value</value>
+  <!-- <value>commented value</value> -->
+  <value>normal value</value>
+  <!-- multiple
+       line
+       comment -->
+  <value>normal value</value>
+</test>
