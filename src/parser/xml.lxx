@@ -7,14 +7,14 @@
 
 %option unicode
 
-langle <
-rangle >
-slash \/
-eq \s*=\s*
-word [a-zA-Z0-9]+
-punctuation [ \.,\-_;\:\!\?\"\']
-words [a-zA-Z0-9\s\.,\-_;:!\?"'\+]+
-string \"[{word}[ \.,\-_;\:\!\?']?]+\"|'[{word}[ \.,\-_;\:\!\?\"]?]+'
+langle  <
+rangle  >
+slash   \/
+eq      \s*=\s*
+word    [a-zA-Z0-9]+
+special [\.,\-_;:!\?\"'\+€\$£#%\*\(\)\{\}\[\]~`@\\]
+words   ([a-zA-Z0-9\s]|{special})+
+string  \"{words}\"|'{words}'
 
 %%
 
@@ -26,5 +26,5 @@ string \"[{word}[ \.,\-_;\:\!\?']?]+\"|'[{word}[ \.,\-_;\:\!\?\"]?]+'
 {word}    { yylval.str = strdup(text()); return parser::token::WORD; }
 {words}   { yylval.str = strdup(text()); return parser::token::WORDS; }
 {string}  { yylval.str = strdup(text()); return parser::token::STRING; }
-
+.         { std::cout << "UNKNOWN: " << text() << std::endl  << std::endl  << std::endl; }
 %%
