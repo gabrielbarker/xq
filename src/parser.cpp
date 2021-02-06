@@ -17,7 +17,6 @@ XML::Tag* Parser::parse() {
         if (root == nullptr) {
             std::cout << "Null result" << std::endl;
         }
-        root->print();
         return root;
     } else {
         std::cout << "Parse failed, no tree" << std::endl;
