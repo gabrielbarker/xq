@@ -17,10 +17,12 @@ int main(int argc, char **argv)
         std::cerr << "Opened " << argv[optind] << std::endl;
         Parser parser(f);
         root = parser.parse();
+        root->print();
     } else {
         std::cerr << "Reading from stdin" << std::endl;
         Parser parser(&std::cin);
         root = parser.parse();
+        root->print();
     }
     if (root != nullptr) {
         std::cerr << "Parsed!" << std::endl;
