@@ -59,4 +59,12 @@ namespace XML
   std::vector<XML::Tag*> Children::tags() {
     return this->children;
   }
+
+  void Words::add(std::string s) {
+    this->str += s;
+  }
+
+  std::string Words::string() {
+    return this->str;
+  }
 } // namespace XML

@@ -43,4 +43,14 @@ namespace XML
   private:
     std::vector<XML::Tag*> children;
   };
+
+  class Words
+  {
+  public:
+    void add(std::string s);
+    std::string string();
+
+  private:
+    std::string str;
+  };
 } // namespace XML
