@@ -1,0 +1,7 @@
+<html>
+  <body>
+    <input type="text" title="first_name" class="text" placeholder="First Name"></input>
+    <input type="text" title="surname" class="text" placeholder="Surname Name"></input>
+    <button title="submit" class="submit_button">Submit</button>
+  </body>
+</html>
