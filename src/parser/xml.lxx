@@ -11,22 +11,22 @@ langle  <
 rangle  >
 slash   \/
 eq      \s*=\s*
-word    [a-zA-Z0-9]+
+name    [a-zA-Z0-9]+
 comment <!--(.|\s)*?-->
-special [\.,\-_;:!\?\"'\+€\$£#%\*\(\)\{\}\[\]~`@\\]
-words   ([a-zA-Z0-9\s]|{special})+
-string  \"{words}\"|'{words}'
+special [\.,\-_;:!\?\+€\$£#%\*\(\)\{\}\[\]~`@\\]
+string  \"[^\"]*?\"|'[^']*?'
+word   ([a-zA-Z0-9]|{special})+
 
 %%
 
 [ \t\n\r]+ { /* ignore white space */ }
 {comment}  { /* ignore comments */ }
-{langle}  { return parser::token::LANGLE; }
-{rangle}  { return parser::token::RANGLE; }
-{slash}   { return parser::token::SLASH; }
-{eq}      { return parser::token::EQ; }
-{word}    { yylval.str = strdup(text()); return parser::token::WORD; }
-{words}   { yylval.str = strdup(text()); return parser::token::WORDS; }
-{string}  { yylval.str = strdup(text()); return parser::token::STRING; }
-.         { std::cout << "UNKNOWN: " << text() << std::endl  << std::endl  << std::endl; }
+{langle}   { return parser::token::LANGLE; }
+{rangle}   { return parser::token::RANGLE; }
+{slash}    { return parser::token::SLASH; }
+{eq}       { return parser::token::EQ; }
+{name}     { yylval.str = strdup(text()); return parser::token::NAME; }
+{word}     { yylval.str = strdup(text()); return parser::token::WORD; }
+{string}   { yylval.str = strdup(text()); return parser::token::STRING; }
+.          { std::cout << "UNKNOWN: " << text() << std::endl  << std::endl  << std::endl; }
 %%

@@ -26,32 +26,40 @@
     XML::Tag* node;
     XML::Children* children;
     XML::Attributes* attributes;
+    XML::Words* words;
 }
 
-%token <str> WORD WORDS STRING
+%token <str> NAME WORD STRING
 %token LANGLE RANGLE SLASH EQ
 
 %type <node> program tag 
 %type <children> tags
 %type <str> open close
 %type <attributes> attributes
+%type <words> words
 
 
 %%
 
 program: tag  { *root = $1; } ;
 
-tag: open attributes RANGLE WORD close { 
+tag: open attributes RANGLE NAME close { 
     $$ = new XML::Tag(); 
     $$->setName($1); 
     $$->setAttributes($2->map());
     $$->setValue($4);
   }
-   | open attributes RANGLE WORDS close { 
+   | open attributes RANGLE WORD close { 
     $$ = new XML::Tag(); 
     $$->setName($1); 
     $$->setAttributes($2->map());
     $$->setValue($4); 
+  }
+   | open attributes RANGLE words close { 
+    $$ = new XML::Tag(); 
+    $$->setName($1); 
+    $$->setAttributes($2->map());
+    $$->setValue($4->string()); 
   }
    | open attributes RANGLE tags close { 
     $$ = new XML::Tag(); 
@@ -65,13 +73,17 @@ tags: tags tag { $$ = $1; $1->add($2); }
     | { $$ = new XML::Children(); }
     ;
 
-open: LANGLE WORD { $$ = $2; };
+open: LANGLE NAME { $$ = $2; };
 
-attributes: attributes WORD EQ STRING { $$ = $1; $$->set($2, $4); }
+attributes: attributes NAME EQ STRING { $$ = $1; $$->set($2, $4); }
           | { $$ = new XML::Attributes(); }
           ;
 
-close: LANGLE SLASH WORD RANGLE { $$ = $3; };
+words: words WORD { $$ = $1; $$->add($2); }
+     | WORD WORD { $$ = new XML::Words(); $$->add($1); $$->add($2); }
+     ;
+
+close: LANGLE SLASH NAME RANGLE { $$ = $3; };
 
 %%
 
