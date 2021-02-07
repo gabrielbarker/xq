@@ -43,19 +43,7 @@
 
 program: tag  { *root = $1; } ;
 
-tag: open attributes RANGLE NAME close { 
-    $$ = new XML::Tag(); 
-    $$->setName($1); 
-    $$->setAttributes($2->map());
-    $$->setValue($4);
-  }
-   | open attributes RANGLE WORD close { 
-    $$ = new XML::Tag(); 
-    $$->setName($1); 
-    $$->setAttributes($2->map());
-    $$->setValue($4); 
-  }
-   | open attributes RANGLE words close { 
+tag: open attributes RANGLE words close { 
     $$ = new XML::Tag(); 
     $$->setName($1); 
     $$->setAttributes($2->map());
@@ -81,10 +69,7 @@ attributes: attributes NAME EQ STRING { $$ = $1; $$->set($2, $4); }
 
 words: words WORD { $$ = $1; $$->add($2); }
      | words NAME { $$ = $1; $$->add($2); }
-     | WORD WORD { $$ = new XML::Words(); $$->add($1); $$->add($2); }
-     | NAME NAME { $$ = new XML::Words(); $$->add($1); $$->add($2); }
-     | WORD NAME { $$ = new XML::Words(); $$->add($1); $$->add($2); }
-     | NAME WORD { $$ = new XML::Words(); $$->add($1); $$->add($2); }
+     | { $$ = new XML::Words(); }
      ;
 
 close: LANGLE SLASH NAME RANGLE { $$ = $3; };
