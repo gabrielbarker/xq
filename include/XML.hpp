@@ -6,18 +6,6 @@
 
 namespace XML
 {
-
-  class Attributes
-  {
-  public:
-    std::string get(std::string name);
-    void set(std::string name, std::string value);
-    std::map<std::string, std::string> map();
-
-  private:
-    std::map<std::string, std::string> attributes;
-  };
-
   class Tag
   {
   public:
@@ -32,6 +20,17 @@ namespace XML
     std::string value;
     std::map<std::string, std::string> attributes;
     std::vector<XML::Tag*> children;
+  };
+
+  class Attributes
+  {
+  public:
+    std::string get(std::string name);
+    void set(std::string name, std::string value);
+    std::map<std::string, std::string> map();
+
+  private:
+    std::map<std::string, std::string> attributes;
   };
 
   class Children
