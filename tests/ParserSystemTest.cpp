@@ -37,4 +37,9 @@ SUITE(ParserSystemTest)
   {
     parseFile("tests/test_data/comment.xml");
   }
+  
+  TEST_FIXTURE(ParserFixture, parseAttributesXML_parsesCorrectly)
+  {
+    parseFile("tests/test_data/attributes.xml");
+  }
 }
