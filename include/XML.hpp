@@ -11,7 +11,10 @@ namespace XML
   public:
     Tag(std::string name, std::map<std::string, std::string> attributes, std::string value);
     Tag(std::string name, std::map<std::string, std::string> attributes, std::vector<XML::Tag*> children);
-    void print();
+    std::string getName();
+    std::string getValue();
+    std::map<std::string, std::string> getAttributes();
+    std::vector<XML::Tag*> getChildren();
 
   private:
     std::string name;

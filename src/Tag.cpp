@@ -1,5 +1,4 @@
 #include "XML.hpp"
-#include <iostream>
 
 XML::Tag::Tag(std::string name, std::map<std::string, std::string> attributes, std::string value) {
   this->name = name;
@@ -13,23 +12,18 @@ XML::Tag::Tag(std::string name, std::map<std::string, std::string> attributes, s
   this->children = children;
 }
 
-void XML::Tag::print()
-{
-  std::cout << "open: " << this->name << std::endl;
-  std::map<std::string, std::string>::iterator it;
+std::string XML::Tag::getName() {
+  return this->name;
+}
 
-  for (it = this->attributes.begin(); it != this->attributes.end(); it++)
-  {
-    std::cout << it->first    // string (key)
-              << ": "
-              << it->second   // string's value 
-              << std::endl;
-  }
-  for (size_t i = 0; i < this->children.size(); i++)
-  {
-    this->children[i]->print();
-  }
-  if (this->children.size() == 0) {
-    std::cout << "value: " << this->value << std::endl;
-  }
+std::string XML::Tag::getValue() {
+  return this->value;
+}
+
+std::map<std::string, std::string> XML::Tag::getAttributes() {
+  return this->attributes;
+}
+
+std::vector<XML::Tag*> XML::Tag::getChildren() {
+  return this->children;
 }
