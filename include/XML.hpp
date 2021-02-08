@@ -9,10 +9,8 @@ namespace XML
   class Tag
   {
   public:
-    void setName(std::string name);
-    void setValue(std::string value);
-    void setAttributes(std::map<std::string, std::string> attributes);
-    void setChildren(std::vector<XML::Tag*> children);
+    Tag(std::string name, std::map<std::string, std::string> attributes, std::string value);
+    Tag(std::string name, std::map<std::string, std::string> attributes, std::vector<XML::Tag*> children);
     void print();
 
   private:

@@ -44,16 +44,10 @@
 program: tag  { *root = $1; } ;
 
 tag: open attributes RANGLE words close { 
-    $$ = new XML::Tag(); 
-    $$->setName($1); 
-    $$->setAttributes($2->map());
-    $$->setValue($4->string()); 
+    $$ = new XML::Tag($1, $2->map(), $4->string());
   }
    | open attributes RANGLE tags close { 
-    $$ = new XML::Tag(); 
-    $$->setName($1); 
-    $$->setAttributes($2->map());
-    $$->setChildren($4->tags()); 
+    $$ = new XML::Tag($1, $2->map(), $4->tags()); 
   }
    ;
 
